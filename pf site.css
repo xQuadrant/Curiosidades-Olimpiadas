@@ -1,0 +1,38 @@
+body{
+    height: 100vh;
+    color: black;
+    background-image: url(/imagens/984acae9-b6ab-4deb-9818-69a22e81ec60.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+   
+    
+}
+h1.cabecalho{
+    color: black;
+    text-align: center;
+    
+}
+p.p{
+    text-align: left;
+}
+p.R{
+    margin-left: 20px;
+}
+select{
+    background-color: gray;
+    cursor: pointer;
+    margin-left: 5px ;
+    text-align: center;
+    
+}
+button{
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 5px;
+    border-radius: 10%;
+    border-color: black;
+    text-transform: inherit;
+    background-color: gray;
+    
+}
