@@ -27,7 +27,19 @@ const lerCSV = (caminhoArquivo, callback, args, acumulador, resposta) => {
 // O filtro "linha?.Season" é o mais importante nesta fase do processamento, visto que ele limita todos os resultados ás olimpíadas de inverno, garantindo que nenhum filtro se desvie do propósito do site.
 const filtroQuestao1 = (linha, medalha, pais) => {
     return linha?.Season === 'Winter' && linha.Medal === medalha && linha?.Team === pais // Filtro de estação, país e medalha. O operador "?" após "linha" verifica se o valor é nulo ou indefinido antes de ser acessado.
-
+}
+const filtroQuestao2 = (linha, pais) => {
+    return linha?.Season === 'Winter' && linha?.Team === pais // Filtro de estação e país.
+}
+const filtroQuestao3 = (linha, ano) => {
+    return linha?.Season === 'Winter' && linha?.Year === ano // Filtro de estação e ano.
+}
+const filtroQuestao4 = (linha, idade) => {
+    return linha?.Season === 'Winter' && linha.Age  === idade // Filtro de estação e país.
+}
+const filtroQuestao5 = (linha, sexo) => {
+    return linha?.Season === 'Winter' && linha?.Sex === sexo // Filtro de estação e sexo.
+}
 
 // As funções buscarQ1, buscarQ2, etc., chamam a função lerCSV com os filtros apropriados e retornam os resultados de acordo com a questão específica. Cada uma delas recebe os parâmetros necessários para aplicar o filtro específico.
 // Estas funções tem o funcionamento igual e argumentos praticamente idênticos, por tanto não é necessário a explicação de todas elas, apenas uma.
@@ -38,4 +50,38 @@ const buscarQ1 = (medalha, pais) => lerCSV( // A função recebe dois parâmetro
     [medalha, pais], // Argumentos do filtro
     [], // Lista vazia, para acúmulo de resultados.
     results => results.length // Comprimento da lista de resultados.
-    )}
+    );
+
+// Retorno questão 2
+const buscarQ2 = (pais) => lerCSV(
+    'athlete_events.csv',
+    filtroQuestao2,
+    [pais],
+    [],
+    results => results.length
+    );
+
+// Retorno questão 3
+const buscarQ3 = (ano) => lerCSV(
+    'athlete_events.csv',
+    filtroQuestao3,
+    [ano],
+    [],
+    results => results[0].City // Este é o único diferencial entre as funções. Esta linha em específico retorna APENAS a primeira cidade a ser encontrada no processamento.
+    );
+// Retorno questão 4
+const buscarQ4 = (idade) => lerCSV(// A função recebe um parâmetro,idade e chama a função "lerCSV".
+    'athlete_events.csv',// Caminho do arquivo.
+    filtroQuestao4,// Função de filtro.
+    [idade],// Argumentos do filtro
+    [],// Lista vazia, para acúmulo de resultados.
+    results => results.length// Comprimento da lista de resultados.
+    );
+
+// Retorno questão 5
+const buscarQ5 = (sexo) => lerCSV(
+    'athlete_events.csv',
+    filtroQuestao5,
+    [sexo],
+    [],
+    results => results.length);
