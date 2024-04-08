@@ -13,23 +13,24 @@
     <ol type="1">
       <li>
         <form>
-        <p class="p">Quantas medalhas de <select>
-          <option></option>
-          <option>Ouro</option>
-          <option>Prata</option>
-          <option>Bronze</option>
+        <p class="p">Quantas medalhas de <select id="medalhaQ1">
+          <option value=""></option>
+          <option value="Gold">Ouro</option>
+          <option value="Silver">Prata</option>
+          <option value="Bronze">Bronze</option>
 
-        </select>,<select>
-          <option></option>
-          <option>Brazil</option>
-          <option>United States</option>
-          <option>China</option>
-          <option>Franca</option>
-          <option>japan</option>
+        </select>,
+        <select id="paisQ1">
+          <option value=""></option>
+          <option value="Brazil">Brasil</option>
+          <option value="United States">Estados Unidos</option>
+          <option value="China">China</option>
+          <option value="France">França</option>
+          <option value="Japan">Japão</option>
           
         </select> ganhou nas olimpíadas de inverno?
         <button type="reset" >reset</button> <button type="button" id="buscar-q1"
-          onClick="buscarQ1(['Gold', 'Japan'])"
+          onClick="buscarQ1()"
         >
           buscar
         </button></p> 
@@ -37,16 +38,17 @@
       </li>
       <li>
         <form>
-        <p class="p"> Quantas olimpíadas de inverno foram sediadas em <select>
-          <option></option>
-          <option>Brazil</option>
-          <option>United States</option>
-          <option>China</option>
-          <option>Franca</option>
-          <option>japan</option>
+        <p class="p"> Quantas olimpíadas de inverno foram sediadas em 
+          <select id="paisQ2">
+           <option value=""></option>
+          <option value="Brazil">Brasil</option>
+          <option value="United States">Estados Unidos</option>
+          <option value="China">China</option>
+          <option value="France">França</option>
+          <option value="Japan">Japão</option>
           
         </select> <button type="reset" >reset</button> <button type="button" id="buscar-q2"
-        onClick="buscarQ2(['Japan'])" 
+        onClick="buscarQ2()" 
         >
         buscar
       </button>
@@ -55,16 +57,16 @@
       </li>
       <li>
         <form>
-        <p class="p"> Qual continente foi sede das olimpíadas de inverno em <select>
+        <p class="p"> Qual continente foi sede das olimpíadas de inverno em <select id="anoQ3">
           <option></option>
-          <option>1928</option>
-          <option>1960</option>
-          <option>2000</option>
-          <option>2008</option>
-          <option>2016</option>
+          <option value="1928">1928</option>
+          <option value="1960">1960</option>
+          <option value="1972">1972</option>
+          <option value="1976">1976</option>
+          <option value="1988">1988</option>
           
         </select>? <button type="reset" >reset</button> <button type="button" id="buscar-q3"
-        onClick="buscarQ3(['1960'])"
+        onClick="buscarQ3()"
         >
         buscar</button>
         </p>
@@ -73,12 +75,14 @@
       </li>
       <li>
         <form>
-        <p class="p">Quantos atletas de <select> <option></option>
-          <option>28</option>
-          <option>20</option>
-          <option>35</option> </select> anos  ganharam medalhas nas olimpíadas de inverno?
+        <p class="p">Quantos atletas de <select id="idadeQ4"> <option></option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="28">28</option>
+          <option value="30">30</option>
+          <option value="35">35</option> </select> anos  ganharam medalhas nas olimpíadas de inverno?
           <button type="reset" >reset</button> <button type="button" id="buscar-q4"
-          onClick="buscarQ4(['28'])"
+          onClick="buscarQ4()"
           >
           buscar</button> </p>
         <p class="R" id="resposta4"></p>
@@ -86,10 +90,10 @@
       </li>
       <li>
         <form>
-        <p class="p">quantas pessoas do sexo <select> <option></option>
-          <option>Feminino</option>
-          <option>Masculino</option> </select> participaram das olimpiadas de inverno? <button type="reset" >reset</button> <button type="button" id="buscar-q5"
-          onClick="buscarQ5(['F'])"
+        <p class="p">quantas pessoas do sexo <select id="sexoQ5"> <option></option>
+          <option value="F">Feminino</option>
+          <option value="M">Masculino</option> </select> participaram das olimpiadas de inverno? <button type="reset" >reset</button> <button type="button" id="buscar-q5"
+          onClick="buscarQ5()"
           >
           buscar</button> </p>
           <p class="R" id="resposta5"></p>

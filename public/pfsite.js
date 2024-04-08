@@ -14,9 +14,12 @@ function displayCSV(data, id) {
     // Substitua-o por um método puro que dê no mesmo resultado.
 }
 
-async function buscarQ1(args) {
+async function buscarQ1() {
     try {
-      const response = await fetch(`/buscar?questao=1&args=${args}`);
+      const medalhaQ1 = document.getElementById("medalhaQ1");
+      const paisQ1 = document.getElementById("paisQ1");
+      console.log(medalhaQ1.value, paisQ1.value)
+      const response = await fetch(`/buscar?questao=1&args=${[medalhaQ1.value, paisQ1.value]}`);
       if (!response.ok) {
         throw new Error('Failed to fetch response data');
       }
@@ -27,9 +30,11 @@ async function buscarQ1(args) {
     }
 }
 
-async function buscarQ2(args) {
+async function buscarQ2() {
     try {
-      const response = await fetch(`/buscar?questao=2&args=${args}`);
+      const paisQ2 = document.getElementById("paisQ2");
+      console.log( paisQ2.value)
+      const response = await fetch(`/buscar?questao=2&args=${[paisQ2.value]}`);
       if (!response.ok) {
         throw new Error('Failed to fetch response data');
       }
@@ -40,9 +45,11 @@ async function buscarQ2(args) {
     }
 }
 
-async function buscarQ3(args) {
+async function buscarQ3() {
     try {
-      const response = await fetch(`/buscar?questao=3&args=${args}`);
+      const anoQ3 = document.getElementById("anoQ3");
+      console.log( anoQ3.value)
+      const response = await fetch(`/buscar?questao=3&args=${[anoQ3.value]}`);
       if (!response.ok) {
         throw new Error('Failed to fetch response data');
       }
@@ -53,9 +60,11 @@ async function buscarQ3(args) {
     }
 }
 
-async function buscarQ4(args) {
+async function buscarQ4() {
     try {
-      const response = await fetch(`/buscar?questao=4&args=${args}`);
+      const idadeQ4 = document.getElementById("idadeQ4");
+      console.log( idadeQ4.value)
+      const response = await fetch(`/buscar?questao=4&args=${idadeQ4.value}`);
       if (!response.ok) {
         throw new Error('Failed to fetch response data');
       }
@@ -66,9 +75,11 @@ async function buscarQ4(args) {
     }
 }
 
-async function buscarQ5(args) {
+async function buscarQ5() {
     try {
-      const response = await fetch(`/buscar?questao=5&args=${args}`);
+      const sexoQ5 = document.getElementById("sexoQ5");
+      console.log( sexoQ5.value)
+      const response = await fetch(`/buscar?questao=5&args=${sexoQ5.value}`);
       if (!response.ok) {
         throw new Error('Failed to fetch response data');
       }
