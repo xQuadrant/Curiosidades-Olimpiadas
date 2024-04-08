@@ -133,23 +133,26 @@ app.get('/buscar', (req, res) => {
         [],
         results => results.length);
 
-    switch (req.query.questao){
-        case '1':
-            buscarQ1(...req.query.args.split(','))
-            break;
-        case '2':
-            buscarQ2(...req.query.args.split(','))
-            break;
-        case '3':
-            buscarQ3(...req.query.args.split(','))
-            break;
-        case '4':
-            buscarQ4(...req.query.args.split(','))
-            break;
-        case '5':
-            buscarQ5(...req.query.args.split(','))
-            break;
-        default:
-            console.log(`Desculpe, questão não encontrada`);
-    }
-});
+// O código abaixo está tratando diferentes casos com base no valor de 'req.query.questao'.
+switch (req.query.questao){
+    // Todos os valores estão atrelados a uma das questões apresentadas.
+    // Caso o valor seja '1', chama a função buscarQ1 com os argumentos fornecidos na query.
+    case '1':
+        buscarQ1(...req.query.args.split(','))
+        break;
+    case '2':
+        buscarQ2(...req.query.args.split(','))
+        break;
+    case '3':
+        buscarQ3(...req.query.args.split(','))
+        break;
+    case '4':
+        buscarQ4(...req.query.args.split(','))
+        break;
+    case '5':
+        buscarQ5(...req.query.args.split(','))
+        break;
+    // Se o valor não corresponder a nenhum dos casos anteriores, imprime uma mensagem de erro.
+    default:
+        console.log(`Desculpe, questão não encontrada`);
+}
