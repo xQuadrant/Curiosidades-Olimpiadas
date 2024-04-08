@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>olimpiadas de inverno </title>
-  <link rel="stylesheet" href="pf site.css">
+  <link rel="stylesheet" type="text/css" href="pf site.css">
+  <script src="pfsite.js" type="text/javascript"></script>
 </head>
 <body>
   <h1 class="cabecalho">Olimpíadas de inverno</h1>
@@ -26,8 +27,13 @@
           <option>Franca</option>
           <option>japan</option>
           
-        </select> ganhou nas olimpíadas de inverno? <button type="reset" >reset</button> <button type="submit">buscar</button></p> 
-        <p class="R"> </p></form>
+        </select> ganhou nas olimpíadas de inverno?
+        <button type="reset" >reset</button> <button type="button" id="buscar-q1"
+          onClick="buscarQ1(['Gold', 'Japan'])"
+        >
+          buscar
+        </button></p> 
+        <p class="R" id="resposta1"> </p></form>
       </li>
       <li>
         <form>
@@ -39,9 +45,13 @@
           <option>Franca</option>
           <option>japan</option>
           
-        </select> <button type="reset" >reset</button> <button type="submit">buscar</button>
+        </select> <button type="reset" >reset</button> <button type="button" id="buscar-q2"
+        onClick="buscarQ2(['Japan'])" 
+        >
+        buscar
+      </button>
         </p>
-        <p class="R"></p></form>
+        <p class="R" id="resposta2"></p></form>
       </li>
       <li>
         <form>
@@ -53,10 +63,13 @@
           <option>2008</option>
           <option>2016</option>
           
-        </select>? <button type="reset" >reset</button> <button type="submit">buscar</button>
+        </select>? <button type="reset" >reset</button> <button type="button" id="buscar-q3"
+        onClick="buscarQ3(['1960'])"
+        >
+        buscar</button>
         </p>
         
-        <p class="R"></p></form>
+        <p class="R" id="resposta3"></p></form>
       </li>
       <li>
         <form>
@@ -64,20 +77,28 @@
           <option>28</option>
           <option>20</option>
           <option>35</option> </select> anos  ganharam medalhas nas olimpíadas de inverno?
-          <button type="reset" >reset</button> <button type="submit">buscar</button> </p>
-        <p class="R"></p>
+          <button type="reset" >reset</button> <button type="button" id="buscar-q4"
+          onClick="buscarQ4(['28'])"
+          >
+          buscar</button> </p>
+        <p class="R" id="resposta4"></p>
       </form>
       </li>
       <li>
         <form>
         <p class="p">quantas pessoas do sexo <select> <option></option>
           <option>Feminino</option>
-          <option>Masculino</option> </select> participaram das olimpiadas de inverno? <button type="reset" >reset</button> <button type="submit">buscar</button> </p>
+          <option>Masculino</option> </select> participaram das olimpiadas de inverno? <button type="reset" >reset</button> <button type="button" id="buscar-q5"
+          onClick="buscarQ5(['F'])"
+          >
+          buscar</button> </p>
+          <p class="R" id="resposta5"></p>
         </form>
           <form>
 
         <form>
-      </select> <button type="reset" >reset todas </button> <button type="submit">buscar todas </button>
+      </select> <button type="reset" >reset todas </button> <button type="button" >buscar todas </button>
+      
       </li>
     </ol>
   </form>

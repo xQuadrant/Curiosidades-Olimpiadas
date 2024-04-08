@@ -1,7 +1,7 @@
 body{
     height: 100vh;
     color: black;
-    background-image: url(/imagens/984acae9-b6ab-4deb-9818-69a22e81ec60.jpg);
+    background-image: url('./imagens/background.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center top;
