@@ -23,8 +23,8 @@ app.set('view engine', 'ejs');
 
 // Rota para lidar com requisições na raiz do servidor
 app.get('/', (req, res) => {
-  // Lendo o conteúdo do arquivo 'pf site.html'
-  const filePath = path.join(__dirname, 'pf site.html');
+  // Lendo o conteúdo do arquivo 'index.html'
+  const filePath = path.join(__dirname, 'index.html');
   fs.readFile(filePath, (err, data) => {
     if (err) {
       // Se ocorrer um erro ao ler o arquivo, envia uma resposta de erro interno do servidor
@@ -155,4 +155,4 @@ switch (req.query.questao){
     // Se o valor não corresponder a nenhum dos casos anteriores, imprime uma mensagem de erro.
     default:
         console.log(`Desculpe, questão não encontrada`);
-}
+}})
