@@ -14,6 +14,40 @@ console.log(__dirname); // Exibe o diretório do arquivo atual no console
 
 // Criando uma instância do aplicativo Express
 const app = express();
+// Configurações de limitação de taxa
+const rateLimits = {};
+const MAX_REQUESTS = 100;
+const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+
+// Middleware limitador de taxa
+const rateLimiter = (req, res, next) => {
+    const ip = req.ip;
+    const now = Date.now();
+
+    if (!rateLimits[ip]) {
+        rateLimits[ip] = { requests: 1, startTime: now };
+        return next();
+    }
+
+    const deltaTime = now - rateLimits[ip].startTime;
+
+    if (deltaTime < WINDOW_MS) {
+        rateLimits[ip].requests++;
+
+        if (rateLimits[ip].requests > MAX_REQUESTS) {
+            return res.status(429).json({ message: 'Desculpe muitas requisicoes no momento tente mais tarde.' });
+        }
+
+        return next();
+    }
+
+    // Redefinir o limite de taxa para IP após a passagem da janela
+    rateLimits[ip] = { requests: 1, startTime: now };
+    next();
+};
+
+// Aplique o limitador de taxa a todas as solicitações
+app.use(rateLimiter);
 
 // Configurando o aplicativo Express para servir arquivos estáticos a partir do diretório 'public'
 app.use(express.static(path.join(__dirname, 'public')));
