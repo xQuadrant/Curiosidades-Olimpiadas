@@ -186,7 +186,13 @@ switch (req.query.questao){
     case '5':
         buscarQ5(...req.query.args.split(','))
         break;
-    // Se o valor não corresponder a nenhum dos casos anteriores, imprime uma mensagem de erro.
-    default:
-        console.log(`Desculpe, questão não encontrada`);
-}})
+        // Se o valor não corresponder a nenhum dos casos anteriores, imprime uma mensagem de erro.
+        default:
+            console.log(`Desculpe, questão não encontrada`);
+            res.setHeader('Content-Type', 'application/json');
+            res.status(400)
+            res.end(JSON.stringify({
+                message: "Desculpe, questão não encontrada"
+            }));
+    }
+})
