@@ -87,3 +87,17 @@ async function buscarQ5() {
       console.error('Error:', error.message);
     }
 }
+// Função para buscar todos os dados das funcoes
+const buscarTodas = () => {
+  try { 
+    buscarQ1(); 
+    buscarQ2();
+    buscarQ3();
+    buscarQ4();
+    buscarQ5();
+    
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+} 
+

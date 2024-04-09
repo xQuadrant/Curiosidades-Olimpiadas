@@ -73,7 +73,7 @@ app.get('/buscar', (req, res) => {
     // Essas funções são os filtros para as diferentes questões. Cada função recebe uma linha do CSV e os argumentos necessários para o filtro, e retorna true se a linha atender ao critério do filtro e false caso contrário.
     // O filtro "linha?.Season" é o mais importante nesta fase do processamento, visto que ele limita todos os resultados ás olimpíadas de inverno, garantindo que nenhum filtro se desvie do propósito do site.
     const filtroQuestao1 = (linha, medalha, pais) => {
-        return linha?.Season === 'Winter' && linha.Medal === medalha && linha?.Team === pais // Filtro de estação, país e medalha. O operador "?" após "linha" verifica se o valor é nulo ou indefinido antes de ser acessado.
+        return linha?.Season === 'Winter' && linha?.Medal === medalha && linha?.Team === pais // Filtro de estação, país e medalha. O operador "?" após "linha" verifica se o valor é nulo ou indefinido antes de ser acessado.
     }
     const filtroQuestao2 = (linha, pais) => {
         return linha?.Season === 'Winter' && linha?.Team === pais // Filtro de estação e país.
@@ -82,7 +82,7 @@ app.get('/buscar', (req, res) => {
         return linha?.Season === 'Winter' && linha?.Year === ano // Filtro de estação e ano.
     }
     const filtroQuestao4 = (linha, idade) => {
-        return linha?.Season === 'Winter' && linha.Age  === idade // Filtro de estação e país.
+        return linha?.Season === 'Winter' && linha?.Age  === idade // Filtro de estação e país.
     }
     const filtroQuestao5 = (linha, sexo) => {
         return linha?.Season === 'Winter' && linha?.Sex === sexo // Filtro de estação e sexo.
@@ -96,7 +96,7 @@ app.get('/buscar', (req, res) => {
         filtroQuestao1, // Função de filtro.
         [medalha, pais], // Argumentos do filtro
         [], // Lista vazia, para acúmulo de resultados.
-        results => results.length // Comprimento da lista de resultados.
+        results => results?.length // Comprimento da lista de resultados.
         );
 
     // Retorno questão 2
@@ -105,7 +105,7 @@ app.get('/buscar', (req, res) => {
         filtroQuestao2,
         [pais],
         [],
-        results => results.length
+        results => results?.length
         );
 
     // Retorno questão 3
@@ -114,7 +114,7 @@ app.get('/buscar', (req, res) => {
         filtroQuestao3,
         [ano],
         [],
-        results => results[0].City // Este é o único diferencial entre as funções. Esta linha em específico retorna APENAS a primeira cidade a ser encontrada no processamento.
+        results => results[0]?.City // Este é o único diferencial entre as funções. Esta linha em específico retorna APENAS a primeira cidade a ser encontrada no processamento.
         );
     // Retorno questão 4
     const buscarQ4 = (idade) => lerCSV(// A função recebe um parâmetro,idade e chama a função "lerCSV".
@@ -122,7 +122,7 @@ app.get('/buscar', (req, res) => {
         filtroQuestao4,// Função de filtro.
         [idade],// Argumentos do filtro
         [],// Lista vazia, para acúmulo de resultados.
-        results => results.length// Comprimento da lista de resultados.
+        results => results?.length// Comprimento da lista de resultados.
         );
 
     // Retorno questão 5
@@ -131,7 +131,7 @@ app.get('/buscar', (req, res) => {
         filtroQuestao5,
         [sexo],
         [],
-        results => results.length);
+        results => results?.length);
 
 // O código abaixo está tratando diferentes casos com base no valor de 'req.query.questao'.
 switch (req.query.questao){
